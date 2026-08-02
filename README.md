@@ -1,9 +1,3 @@
-# 🚀 Cloud & DevOps Engineering Challenge 2026
-
-Welcome to the central repository for the **Cloud & DevOps Engineering Challenge**. This repository documents hands-on cloud infrastructure provisioning, automation scripts, IAM security policies, and storage optimization workflows.
-
----
-
 ## 📌 Progress Overview
 
 | Day | Topic | Highlights / Tools |
@@ -18,6 +12,7 @@ Welcome to the central repository for the **Cloud & DevOps Engineering Challenge
 | [**Day 08**](./Day08) | Server System Health Monitoring | Bash Monitoring Scripts, Resource Tracking |
 | [**Day 09**](./Day09) | AWS S3 Automated Upload Workflows | Upload Automation, CLI Scripts |
 | [**Day 10**](./Day10) | AWS S3 Lifecycle Rules & Cost Optimization | Automated Storage Tiering, Glacier Archiving |
+| [**Day 11**](./Day11) | AWS CloudWatch Agent & Log Ingestion | Centralized System Logging, Log Retention |
 
 ---
 

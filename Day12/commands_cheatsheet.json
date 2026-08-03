@@ -1,0 +1,21 @@
+{
+  "topic": "Linux Process & Service Management",
+  "commands": [
+    {
+      "command": "top",
+      "description": "Real-time process monitor for CPU and Memory usage"
+    },
+    {
+      "command": "ps aux",
+      "description": "Lists all active running processes with PID and execution parameters"
+    },
+    {
+      "command": "kill -9 <PID>",
+      "description": "Sends SIGKILL signal to immediately terminate a process ID"
+    },
+    {
+      "command": "systemctl status <service>",
+      "description": "Checks operational health of systemd service daemons"
+    }
+  ]
+}

@@ -13,6 +13,7 @@
 | [**Day 09**](./Day09) | AWS S3 Automated Upload Workflows | Upload Automation, CLI Scripts |
 | [**Day 10**](./Day10) | AWS S3 Lifecycle Rules & Cost Optimization | Automated Storage Tiering, Glacier Archiving |
 | [**Day 11**](./Day11) | AWS CloudWatch Agent & Log Ingestion | Centralized System Logging, Log Retention |
+| [**Day 12**](./Day12) | Linux Process Management & Systemd Services | PID Tracking, Process Termination (`kill -9`), Service Monitoring |
 
 ---
 

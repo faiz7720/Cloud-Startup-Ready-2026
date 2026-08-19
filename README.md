@@ -14,7 +14,7 @@
 | [Day 10](./Day10) | AWS S3 Lifecycle Rules & Cost Optimization | Automated Storage Tiering, Glacier Archiving |
 | [Day 11](./Day11) | AWS CloudWatch Agent & Log Ingestion | Centralized System Logging, Log Retention |
 | [Day 12](./Day12) | Linux Process Management & Systemd Services | PID Tracking, Process Termination (`kill -9`), Service Monitoring |
-| [Day 13](./Day13) | Docker Engine & Containerization | Container Lifecycle, Port Forwarding (`8080:80`), Daemon Access Control |
+| [Day 13](./Day13) | Docker Engine & Containerization | Container Lifecycle, Port Forwarding (`8080:80`), Daemon Access Control || [Day 14](./Day14) | Custom Dockerfile & Image Layering | Multi-layer Dockerfile, Alpine Base, Asset Injection, Custom Port 9090 |
 
 ---
 

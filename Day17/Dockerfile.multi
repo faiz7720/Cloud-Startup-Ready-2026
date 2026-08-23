@@ -1,0 +1,18 @@
+# STAGE 1: Build Environment
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /build
+COPY main.go .
+
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o myapp main.go
+
+# STAGE 2: Lean Runtime
+FROM alpine:3.19
+
+RUN adduser -D -u 1001 appuser
+WORKDIR /app
+COPY --from=builder /build/myapp .
+
+USER 1001
+EXPOSE 8080
+CMD ["./myapp"]

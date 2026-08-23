@@ -18,6 +18,7 @@
 | [Day 14](./Day14) | Custom Dockerfile & Image Layering | Multi-layer Dockerfile, Alpine Base, Asset Injection, Custom Port 9090 |
 | [Day 15](./Day15) | Docker Storage Architecture | Bind Mounts (`-v`), Read-Only Hardening (`:ro`), Multi-Container Shared Named Volumes |
 | [Day 16](./Day16) | Docker Custom Bridge Networks | User-Defined Bridge, Embedded DNS (`127.0.0.11`), Dynamic Attach (`docker network connect`), Network Isolation |
+| [Day 17](./Day17) | Docker Multi-Stage Builds & Image Optimization | Multi-Stage Dockerfile, Alpine Runtime, 98.5% Size Reduction, Rootless Security |
 
 ---
 

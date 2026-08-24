@@ -19,6 +19,8 @@
 | [Day 15](./Day15) | Docker Storage Architecture | Bind Mounts (`-v`), Read-Only Hardening (`:ro`), Multi-Container Shared Named Volumes |
 | [Day 16](./Day16) | Docker Custom Bridge Networks | User-Defined Bridge, Embedded DNS (`127.0.0.11`), Dynamic Attach (`docker network connect`), Network Isolation |
 | [Day 17](./Day17) | Docker Multi-Stage Builds & Image Optimization | Multi-Stage Dockerfile, Alpine Runtime, 98.5% Size Reduction, Rootless Security |
+| [Day 18](./Day18) | Docker Compose & Multi-Tier Microservices Fleet | Nginx Reverse Proxy, React, Express API, MongoDB, Custom Bridge Network |
+
 
 ---
 

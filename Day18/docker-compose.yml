@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./nginx
+    container_name: production_gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - internal-fleet-net
+
+  frontend:
+    build: ./frontend
+    container_name: production_frontend
+    expose:
+      - "80"
+    networks:
+      - internal-fleet-net
+
+  backend:
+    build: ./backend
+    container_name: production_backend
+    expose:
+      - "5000"
+    environment:
+      - MONGO_URI=mongodb://db:27017/microservices_db
+    depends_on:
+      - db
+    networks:
+      - internal-fleet-net
+
+  db:
+    image: mongo:6.0
+    container_name: production_db
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - internal-fleet-net
+
+networks:
+  internal-fleet-net:
+    driver: bridge
+
+volumes:
+  mongo_data:

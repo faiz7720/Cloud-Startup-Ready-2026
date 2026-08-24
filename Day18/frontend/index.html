@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Microservices Production Fleet</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+    .card { background: #1e293b; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 100%; max-width: 500px; text-align: center; border: 1px solid #334155; }
+    h1 { margin-bottom: 0.5rem; color: #38bdf8; }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; background: #22c55e; color: #000; }
+    button { background: #0284c7; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 1rem; width: 100%; }
+    button:hover { background: #0369a1; }
+    pre { background: #020617; padding: 1rem; border-radius: 6px; text-align: left; overflow-x: auto; color: #38bdf8; font-size: 0.85rem; margin-top: 1.5rem; border: 1px solid #1e293b; min-height: 50px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 Microservices Fleet Dashboard</h1>
+    <div class="badge">Architecture: Nginx Reverse Proxy → React → Express → MongoDB</div>
+    <button onclick="checkStatus()">Check Backend Status</button>
+    <pre id="output">Click above to verify API connectivity...</pre>
+  </div>
+  <script>
+    async function checkStatus() {
+      const output = document.getElementById('output');
+      output.innerText = 'Connecting to backend through gateway...';
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        output.innerText = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.innerText = 'Connection Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

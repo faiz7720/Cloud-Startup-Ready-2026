@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Microservices Production Dashboard</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #f8fafc; padding: 40px; margin: 0; }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; max-width: 650px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #334155; }
+    h1 { color: #38bdf8; margin-top: 0; }
+    .badge { display: inline-block; padding: 6px 12px; border-radius: 6px; font-weight: bold; background: #22c55e; color: #000; }
+    pre { background: #020617; padding: 15px; border-radius: 8px; border: 1px solid #1e293b; overflow-x: auto; color: #38bdf8; }
+    button { background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #0284c7; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 Microservices Fleet Dashboard</h1>
+    <p>Architecture: <span class="badge">Nginx Reverse Proxy &rarr; React &rarr; Express &rarr; MongoDB</span></p>
+    <hr style="border: 0.5px solid #334155; margin: 20px 0;">
+    <button onclick="fetchHealth()">Check Backend Status</button>
+    <pre id="output">Click above to verify API connectivity...</pre>
+  </div>
+  <script>
+    async function fetchHealth() {
+      try {
+        const res = await fetch('/api/health');
+        const data = await res.json();
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error contacting backend: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Database Service
+  db:
+    image: mongo:6.0
+    container_name: production_db
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: devops_db
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - internal-fleet-net
+
+  # Backend Microservice
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: production_backend
+    restart: always
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://db:27017/devops_db
+    depends_on:
+      - db
+    networks:
+      - internal-fleet-net
+
+  # Frontend Microservice
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: production_frontend
+    restart: always
+    networks:
+      - internal-fleet-net
+
+  # Nginx Gateway (Public Facing)
+  gateway:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: production_gateway
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - internal-fleet-net
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  internal-fleet-net:
+    driver: bridge

@@ -1,0 +1,44 @@
+name: Microservices CI/CD & Security Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  code-audit-and-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Node.js Syntax & Lint Check
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Dockerfile Security Scan (DevSecOps)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
+
+  continuous-deployment:
+    needs: code-audit-and-security
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy Fleet to Production EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/project-microservices
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build
+            docker system prune -f

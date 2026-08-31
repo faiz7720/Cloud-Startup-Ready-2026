@@ -21,6 +21,7 @@
 | [Day 17](./Day17) | Docker Multi-Stage Builds & Image Optimization | Multi-Stage Dockerfile, Alpine Runtime, 98.5% Size Reduction, Rootless Security |
 | [Day 18](./Day18) | Docker Compose & Multi-Tier Microservices Fleet | Nginx Reverse Proxy, React, Express API, MongoDB, Custom Bridge Network |
 | [Day 19](Day19) | Docker Volume Backups & Disaster Recovery | Automated Volume Snapshots, Tar Archive Pipeline, Zero-Data-Loss Restoration, Fleet Verification |
+| [Day 20](Day20-Observability/) | CI/CD Pipeline, DevSecOps & Observability Stack | GitHub Actions CI/CD, Aqua Security Trivy Vulnerability Scan, Prometheus Server, Node Exporter Metrics |
 
 
 ---

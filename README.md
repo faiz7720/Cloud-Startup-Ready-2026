@@ -22,7 +22,7 @@
 | [Day 18](./Day18) | Docker Compose & Multi-Tier Microservices Fleet | Nginx Reverse Proxy, React, Express API, MongoDB, Custom Bridge Network |
 | [Day 19](Day19) | Docker Volume Backups & Disaster Recovery | Automated Volume Snapshots, Tar Archive Pipeline, Zero-Data-Loss Restoration, Fleet Verification |
 | [Day 20](Day20-Observability/) | CI/CD Pipeline, DevSecOps & Observability Stack | GitHub Actions CI/CD, Aqua Security Trivy Vulnerability Scan, Prometheus Server, Node Exporter Metrics |
-
+| [Day 21](monitoring) | Production Observability & Monitoring Stack | Prometheus Target Scraping (172.17.0.1:9100), Grafana Dashboard 1860, Host Telemetry & CPU Stress Load Validation |
 
 ---
 

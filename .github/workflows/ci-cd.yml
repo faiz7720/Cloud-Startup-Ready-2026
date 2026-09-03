@@ -30,3 +30,21 @@ jobs:
           file: ./Day17/Dockerfile.multi
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-microservice:latest
+
+  deploy:
+    name: Deploy to AWS EC2
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Execute Remote Deployment via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cloud-microservice:latest
+            docker stop cloud-app || true
+            docker rm cloud-app || true
+            docker run -d --name cloud-app -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/cloud-microservice:latest

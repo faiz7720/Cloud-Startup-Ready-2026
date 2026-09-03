@@ -23,12 +23,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Multi-Stage Image
         uses: docker/build-push-action@v5
         with:
           context: ./Day17
-          file: ./Day17/Dockerfile
+          file: ./Day17/Dockerfile.multi
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-microservice:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
